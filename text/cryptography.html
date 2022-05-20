@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptography</title>
+</head>
+<body>
+    <!-- Give a brief overview of this area. Describe and list several Cipher methods. Explain Cryptographic algorithms and give several examples. -->
+    <h1>Cryptography</h1>
+    <p>Cryptography has become central to protecting information systems and its roots span as far back as the Egyptians. The field pertains to methods of storing and transmitting data in a form that can only be used by its intended receivers and encompasses the science of securing information that is encoded in an unreadable format. The goal is to protect sensitive information from unauthorized individuals. The method used to encode the readable information, called plaintext, is known as encryption, and it turns the plaintext into unreadable ciphertext. The ciphertext allows for the transfer of classified information over channels that may be insecure. Once the ciphertext is received, it is then decrypted back into plaintext for the intended recipient to view or use. The encryption/decryption is handled via algorithms known as ciphers which use a secret value called a key in tandem with the algorithm to transform the data between plaintext and ciphertext. There are many different ciphers that are used which will be explored below.</p>
+    <ul id="cipherMethods">
+        <li>Substitution cipher uses a key to transform the data, replacing bits, characters, or blocks of characters with different bits and characters
+            <ul>
+                <li>Caesar cipher used a three-position shift to perform the encryption</li>
+                <li>Vigenère cipher uses a polyalphabetic table to convert data from plaintext to ciphertext</li>
+            </ul>
+        </li>
+        <li>Transposition cipher, instead of replacing the text with different text, it moves the original values around by rearranging bits, characters, or blocks of characters to conceal the message</li>
+        <li>Exclusive OR is a simple symmetric cipher that uses Boolean algebra to compare two bits and return a binary value result</li>
+        <li>Vernam ciphers, also known as one-time pads, uses a code made up of random values to encrypt the plaintext, it is considered unbreakable if implemented correctly as the decryption process requires either the one-time pad or difficult cryptanalysis to uncover</li>
+        <li>Book-based ciphers require an agreed upon book or text in order to decrypt the message
+            <ul>
+                <li>Running key cipher uses a book for passing the key to a cipher, the message is represented as a sequence of numbers indicating page number, line number, and word number</li>
+                <li>Concealment cipher represents a message within a message</li>
+            </ul>
+        </li>
+    </ul>
+    <p>In looking at cryptographic algorithms, they fall into two broad categories, symmetric and asymmetric. Symmetric algorithms use a secret key that both the sender and the receiver know in order to encrypt and decrypt the message. This type of encryption is known as symmetric because it requires each user to keep the secret and properly protect it. In practice, I use symmetric algorithms to encrypt all my data at rest using VeraCrypt. Common symmetric algorithms include DES, 3DES, Blowfish, IDEA, RC4, RC5, RC6, and AES.</p>
+    <figure>
+        <img id="veracryptAlgorithms" src="../images/VeraCrypt_Algorithms.jpg" alt="VeraCrypt Encryption Algorithms" />
+        <figcaption>Encryption Algorithms used in VeraCrypt</figcaption>
+    </figure>
+    <p>Asymmetric encryption uses asymmetric keys known as public and private keys, which are different but related. Person A loads their public key to an online repository and when Person B wants to send them an encrypted message, Person B retrieves Person A’s public key to encrypt the information, the ciphertext is then sent to Person A, who is the only one who can decrypt the message as it requires their private key. This process is used in cryptocurrency transactions, when creating a cryptocurrency wallet, the user generates a public-private key pair that is used to store their crypto, when they want to access the wallet to do a transaction, they must enter their private key into the wallet software in order to unlock it. When Person A wants to send crypto to Person B, they get Person B’s public key address and initiate a transaction. Person A is required to “sign” the transaction using their private key in order to ensure that the transaction is valid prior to sending it out to the network for processing.</p>
+</body>
+</html>
