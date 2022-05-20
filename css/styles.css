@@ -2,7 +2,15 @@
     background-color: gray;
 }
 
-ol#cybersecurityLinks {
+ol {
     background-color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+li {
+    background-color: white;
+}
+
+a {
+    background-color: white;
 }
