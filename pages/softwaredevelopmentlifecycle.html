@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
     <title>Software Development Lifecycle</title>
 </head>
 <body>
@@ -11,31 +12,33 @@
     <h1>The Software Development Lifecycle</h1>
     <p>When implementing the SDLC methodology, I would ensure that there were proper security requirements in place from the outset of the project and have gravitated towards the DevSecOps approach as my background precludes me from taking operations and security out of the equation. I recently got experience with this over the winter break when I took a class on Docker and Kubernetes, and we went through the implementation of a production CI/CD workflow. After working through the remaining chapters in Liang’s book (including web chapters), I knew that I wanted to move on to learning another programming language, but I also knew the headache that came with installing and maintaining various libraries on one machine.</p>
     <p>The class walked us through the deployment of a multi-container application using Docker on AWS and then a multi-container K8s cluster on Google Cloud. The workflow consisted of a Dev/Test/Deploy cycle using security best practices. The production grade workflow also required the use of GitHub for version control, Docker for hosting images, Travis CI for pre-deployment testing, and was set up for HTTPS using an SSL certificate from Let’s Encrypt and then redirected to one of my domains.</p>
-    <ul>
-        <li>Dev
-            <ul id="devProcess">
-                <li>Create/change feature</li>
-                <li>Make changes on non-main branch</li>
-                <li>Push to GitHub</li>
-                <li>Create pull request</li>
-                <li>Configure Travis CI with necessary protected and secret fields so no passwords are included in the image</li>
-            </ul>
-        </li>
-        <li>Test
-            <ul id="testProcess">
-                <li>GitHub automatically pushed the code to Travis CI</li>
-                <li>Travis CI does a test run of the new code</li>
-                <li>Verify pull request and merge on to main branch</li>
-            </ul>
-        </li>
-        <li>Deploy
-            <ul id="deployProcess">
-                <li>Code is pushed from main branch to Travis CI</li>
-                <li>Travis CI runs the tests</li>
-                <li>If test passes, the application is deployed to AWS/Google Cloud</li>
-            </ul>
-        </li>
-    </ul>
+    <div class="cicd">
+        <ul>
+            <li>Dev
+                <ul>
+                    <li>Create/change feature</li>
+                    <li>Make changes on non-main branch</li>
+                    <li>Push to GitHub</li>
+                    <li>Create pull request</li>
+                    <li>Configure Travis CI with necessary protected and secret fields so no passwords are included in the image</li>
+                </ul>
+            </li>
+            <li>Test
+                <ul>
+                    <li>GitHub automatically pushed the code to Travis CI</li>
+                    <li>Travis CI does a test run of the new code</li>
+                    <li>Verify pull request and merge on to main branch</li>
+                </ul>
+            </li>
+            <li>Deploy
+                <ul>
+                    <li>Code is pushed from main branch to Travis CI</li>
+                    <li>Travis CI runs the tests</li>
+                    <li>If test passes, the application is deployed to AWS/Google Cloud</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
     <a href=""></a> <!-- Need link to application running somewhere-->
     <p>It is a simple two-page application that uses Redis and Postgres container instances to handle the backend of a Fibonacci application. We also spun up a container instance to encrypt a json file that was required to be passed to Google Cloud for authentication, which was subsequently destroyed to protect the data.</p>
     <p>All throughout the process, security best practices were implemented to ensure that data was secure in transmission and in use, using version control to manage changes and running tests prior to deployment to ensure the code being deploying wouldn’t cause the application to crash. I also included my own security measures to ensure the data is encrypted at rest.</p>    
