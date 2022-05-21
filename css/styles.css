@@ -18,3 +18,7 @@ a {
 .cicd {
     margin: 5px;
 }
+
+p {
+    text-align: justify;
+}
